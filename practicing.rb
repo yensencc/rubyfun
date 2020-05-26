@@ -428,17 +428,76 @@
 # puts table_radio.display_info
 
 
-require_relative 'person'
-require_relative 'artist'
-
-
-first_artist = Artist.new("Vincent VG")
-first_artist.add_occupation("Plastics painting")
-puts "#{first_artist.full_name} is #{first_artist.class} and its occupation is in #{first_artist.occupations.join} "
 
 
 
+## Inheritance 
+# require_relative 'person'
+# require_relative 'artist'
 
+
+# first_artist = Artist.new("Vincent VG")
+# first_artist.add_occupation("Plastics painting")
+# puts "#{first_artist.full_name} is a #{first_artist.class} who occupation is #{first_artist.occupations.join} "
+
+
+
+#Overrideing and extending
+
+# class Sofa
+#     @@can_open = false
+#     attr_accessor :width, :length
+    
+#     def area
+#         width * length
+#     end
+    
+# end
+
+
+# class SofaBed < Sofa
+#     @@can_open = true
+#     attr_accessor :length_opened, :is_open
+    
+#     def area
+#         is_open ? width * length_opened : width * length
+#     end
+# end
+
+
+
+
+
+
+
+
+
+
+# Accesing the superclass
+
+
+class Chef
+    def make_dinner
+        puts "Cook any food"
+    end
+end
+
+
+class AmateurChef < Chef
+    def make_dinner
+        puts "Read recipe"
+        super 
+        puts "Clean up mess"
+    end
+end
+
+
+chef  = Chef.new
+chef.make_dinner
+
+amChef = AmateurChef.new
+
+amChef.make_dinner
 
 
 
