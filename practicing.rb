@@ -432,17 +432,18 @@
 
 
 ## Inheritance 
-# require_relative 'person'
-# require_relative 'artist'
+require_relative 'person'
+require_relative 'artist'
 
 
-# first_artist = Artist.new("Vincent VG")
-# first_artist.add_occupation("Plastics painting")
-# puts "#{first_artist.full_name} is a #{first_artist.class} who occupation is #{first_artist.occupations.join} "
+first_artist = Artist.new("Vincent VG")             
+first_artist.add_occupation("plastic arts")
+puts "#{first_artist.full_name} is a #{first_artist.title} who occupation is #{first_artist.occupations.join}"
 
 
 
-#Overrideing and extending
+
+#Overwriting and extending
 
 # class Sofa
 #     @@can_open = false
@@ -476,28 +477,28 @@
 # Accesing the superclass
 
 
-class Chef
-    def make_dinner
-        puts "Cook any food"
-    end
-end
+# class Chef
+#     def make_dinner
+#         puts "Cook any food"
+#     end
+# end
 
 
-class AmateurChef < Chef
-    def make_dinner
-        puts "Read recipe"
-        super 
-        puts "Clean up mess"
-    end
-end
+# class AmateurChef < Chef
+#     def make_dinner
+#         puts "Read recipe"
+#         super 
+#         puts "Clean up mess"
+#     end
+# end
 
 
-chef  = Chef.new
-chef.make_dinner
+# chef  = Chef.new
+# chef.make_dinner
 
-amChef = AmateurChef.new
+# amChef = AmateurChef.new
 
-amChef.make_dinner
+# amChef.make_dinner
 
 
 

@@ -26,7 +26,9 @@ class Person
 		@name.split(" ")[1]
 	
 	end
-
+	def initials
+		get_initials
+	end
 
 	def self.how_many_people
 		@@people 
@@ -34,5 +36,11 @@ class Person
 
 	def self.who_are_they
 		@@people_names
+	end
+	
+	
+	private
+	def get_initials
+		"#{last_name[0]}. #{first_name[0]}."
 	end
 end
