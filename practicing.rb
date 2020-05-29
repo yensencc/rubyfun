@@ -432,13 +432,13 @@
 
 
 ## Inheritance 
-require_relative 'person'
-require_relative 'artist'
+# require_relative 'person'
+# require_relative 'artist'
 
 
-first_artist = Artist.new("Vincent VG")             
-first_artist.add_occupation("plastic arts")
-puts "#{first_artist.full_name} is a #{first_artist.title} who occupation is #{first_artist.occupations.join}"
+# first_artist = Artist.new("Vincent VG")             
+# first_artist.add_occupation("plastic arts")
+# puts "#{first_artist.full_name} is a #{first_artist.title} who occupation is #{first_artist.occupations.join}"
 
 
 
@@ -504,12 +504,37 @@ puts "#{first_artist.full_name} is a #{first_artist.title} who occupation is #{f
 
 
 
+# Astonishing Numbers
+
+def split_num (num)
+    num_to_string = num.to_s
+    num_to_string
+end
 
 
 
+def get_secuence_sum(value)
+splited_values = [] 
+splited_values = split_num(value)
+left = splited_values[0].to_i
+right = splited_values[1].to_i
+sum = (left..right).inject{|sum,num| sum + num}
+sum
+end
 
 
+def is_atonishing(num)
+ is_ato = nil
+ num == get_secuence_sum(num) ? is_ato = true : is_ato = false
+ split_num(num)[0].to_i > split_num(num)[1].to_i ? return_string = "BA-Astonishing" : return_string = "AB-Astonishing"
+
+ if is_ato
+     return_string
+ else
+     is_ato
+ end
+    
+end
 
 
-
-
+puts is_atonishing(11)
