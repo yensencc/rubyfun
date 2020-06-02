@@ -506,35 +506,60 @@
 
 # Astonishing Numbers
 
-def split_num (num)
-    num_to_string = num.to_s
-    num_to_string
-end
+# def split_num (num)
+#     num_to_string = num.to_s
+#     num_to_string
+# end
 
 
 
-def get_secuence_sum(value)
-splited_values = [] 
-splited_values = split_num(value)
-left = splited_values[0].to_i
-right = splited_values[1].to_i
-sum = (left..right).inject{|sum,num| sum + num}
-sum
-end
+# def get_secuence_sum(value)
+# splited_values = [] 
+# splited_values = split_num(value)
+# left = splited_values[0].to_i
+# right = splited_values[1].to_i
+# sum = (left..right).inject{|sum,num| sum + num}
+# sum
+# end
 
 
-def is_atonishing(num)
- is_ato = nil
- num == get_secuence_sum(num) ? is_ato = true : is_ato = false
- split_num(num)[0].to_i > split_num(num)[1].to_i ? return_string = "BA-Astonishing" : return_string = "AB-Astonishing"
+# def is_atonishing(num)
+#  is_ato = nil
+#  num == get_secuence_sum(num) ? is_ato = true : is_ato = false
+#  split_num(num)[0].to_i > split_num(num)[1].to_i ? return_string = "BA-Astonishing" : return_string = "AB-Astonishing"
 
- if is_ato
-     return_string
- else
-     is_ato
- end
+#  if is_ato
+#      return_string
+#  else
+#      is_ato
+#  end
     
+# end
+
+
+# puts is_atonishing(11)
+
+
+
+
+################ Selective Array Reversal #####################
+
+def sel_reverse(arr, len)
+    x = 0
+    arr_reverse = []
+    number_of_cuts =  arr.length / 2
+    number_of_cuts.times do
+        
+        new_arr = []
+        new_arr << arr[x..x + 1].reverse
+        arr_reverse << new_arr
+        x += len
+    end
+    
+    
+    "#{arr_reverse.flatten}"
+     
 end
 
 
-puts is_atonishing(11)
+puts sel_reverse( [1, 2, 3, 4, 5, 6], 2 )
