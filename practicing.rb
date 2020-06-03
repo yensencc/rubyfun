@@ -547,19 +547,43 @@
 def sel_reverse(arr, len)
     x = 0
     arr_reverse = []
-    number_of_cuts =  arr.length / 2
+    if len > 0
+        number_of_cuts =  arr.length / len
+    end
+    if len == 0
+        "#{arr}"
+    elsif len > arr.length
+         "#{arr.reverse.flatten}"
+    elsif  arr.length % len != 0
+        sel_reverse_prime(arr, len)
+    else
     number_of_cuts.times do
-        
         new_arr = []
         new_arr << arr[x..x + 1].reverse
         arr_reverse << new_arr
         x += len
     end
-    
-    
-    "#{arr_reverse.flatten}"
+     "#{arr_reverse.flatten}"
+    end
+   
      
 end
 
+## helper method for not broken equal parts arrays
+def sel_reverse_prime(arr, len)
+    cuts = arr.length.to_f / len
+    cuts = cuts.round
+    x = 0
+    arr_reverse = []
+    cuts.times do
+        new_arr = []
+        new_arr << arr[x..x + 2].reverse
+        arr_reverse << new_arr
+        x += len
+    end
+     "#{arr_reverse.flatten}"
+end
 
-puts sel_reverse( [1, 2, 3, 4, 5, 6], 2 )
+
+puts sel_reverse( [2,4,6,8,10,12,14,16], 10 )
+
