@@ -620,4 +620,4 @@ def is_super_d(num)
     end
 end
 
-puts is_super_d(11)
+puts is_super_d(10)
