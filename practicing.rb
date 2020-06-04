@@ -544,46 +544,80 @@
 
 ################ Selective Array Reversal #####################
 
-def sel_reverse(arr, len)
-    x = 0
-    arr_reverse = []
-    if len > 0
-        number_of_cuts =  arr.length / len
-    end
-    if len == 0
-        "#{arr}"
-    elsif len > arr.length
-         "#{arr.reverse.flatten}"
-    elsif  arr.length % len != 0
-        sel_reverse_prime(arr, len)
-    else
-    number_of_cuts.times do
-        new_arr = []
-        new_arr << arr[x..x + 1].reverse
-        arr_reverse << new_arr
-        x += len
-    end
-     "#{arr_reverse.flatten}"
-    end
+# def sel_reverse(arr, len)
+#     x = 0
+#     arr_reverse = []
+#     if len > 0
+#         number_of_cuts =  arr.length / len
+#     end
+#     if len == 0 || len == 1
+#         "#{arr}"
+#     elsif len >= arr.length 
+#          "#{arr.reverse.flatten}"
+#     elsif  arr.length % len != 0
+#         sel_reverse_prime(arr, len)
+#     else
+#     number_of_cuts.times do
+#         new_arr = []
+#         new_arr << arr[x..x + 1].reverse
+#         arr_reverse << new_arr
+#         x += len
+#     end
+#      "#{arr_reverse.flatten}"
+#     end
    
      
+# end
+
+# # helper method for not broken equal parts arrays
+# def sel_reverse_prime(arr, len)
+#     cuts = arr.length.to_f / len
+#     cuts = cuts.round
+#     x = 0
+#     arr_reverse = []
+#     cuts.times do
+#         new_arr = []
+#         new_arr << arr[x..x + len].reverse
+#         arr_reverse << new_arr
+#         x += len
+#     end
+#      "#{arr_reverse.flatten}"
+# end
+
+
+# puts sel_reverse( [2,4,6,8,10,12,14,16], 8)
+
+# puts sel_reverse([6, 0, 0, 0, 3, 8, 9, 7, 1], 9)
+
+# puts sel_reverse([12, 54, 67, 34, 65, 34, 33], 1)
+
+# puts sel_reverse([22, 13, 22, 13, 13, 22, 22, 13], 5)
+
+
+######################### Super-d Numbers #########################
+
+
+def consecutive_digits(num, digit)
+    result = num * digit
+    digit = digit.to_s
+    result_values = result.to_s
+    result_values.count(digit)
 end
 
-## helper method for not broken equal parts arrays
-def sel_reverse_prime(arr, len)
-    cuts = arr.length.to_f / len
-    cuts = cuts.round
-    x = 0
-    arr_reverse = []
-    cuts.times do
-        new_arr = []
-        new_arr << arr[x..x + 2].reverse
-        arr_reverse << new_arr
-        x += len
+def is_super_d(num)
+    d = 2
+
+    while d <= 9 do
+    
+        if consecutive_digits(num,d) == d 
+            puts "Super-digit Number"
+            break
+        else
+            puts "Normal Number"
+            break
+        end
+        d += 1
     end
-     "#{arr_reverse.flatten}"
 end
 
-
-puts sel_reverse( [2,4,6,8,10,12,14,16], 10 )
-
+puts is_super_d(11)
