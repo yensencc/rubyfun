@@ -597,27 +597,36 @@
 ######################### Super-d Numbers #########################
 
 
-def consecutive_digits(num, digit)
-    result = num * digit
-    digit = digit.to_s
-    result_values = result.to_s
-    result_values.count(digit)
-end
+# def consecutive_digits(num, digit)
+#     result = num * digit
+#     digit = digit.to_s
+#     result_values = result.to_s
+#     result_values.count(digit)
+# end
 
-def is_super_d(num)
-    d = 2
+# def is_super_d(num)
+#     d = 2
 
-    while d <= 9 do
+#     while d <= 9 do
     
-        if consecutive_digits(num,d) == d 
-            puts "Super-digit Number"
-            break
-        else
-            puts "Normal Number"
-            break
-        end
-        d += 1
-    end
+#         if consecutive_digits(num,d) == d 
+#             puts "Super-digit Number"
+#             break
+#         else
+#             puts "Normal Number"
+#             break
+#         end
+#         d += 1
+#     end
+# end
+
+# puts is_super_d(10)
+
+
+# A Redundant Function
+
+def redundant(s)
+square = Proc.new { s }
+	square
 end
 
-puts is_super_d(10)
