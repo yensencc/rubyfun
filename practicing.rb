@@ -625,8 +625,53 @@
 
 # A Redundant Function
 
-def redundant(s)
-square = Proc.new { s }
-	square
+# def redundant(s)
+# square = Proc.new { s }
+# 	square
+# end
+
+
+
+## work in progress longest_zero sequence
+## https://edabit.com/challenge/uGXLBWnMiy5CSpR8s
+
+def longest_zero(b)
+    current_count = 0;
+    previoes_count = 0;
+    binary_string = []
+    binary_string = b.split("")
+    for x in 0..binary_string.length - 1
+        if binary_string[x] == "0"
+            if cero_leaded(binary_string, x)
+                current_count += 1
+                if (current_count < previoes_count)
+                    current_coutn = previoes_count
+                end
+                
+            else
+                next
+            end
+            previoes_count = current_count
+        end
+    end
+    
+    zero_concurrencies = []
+    current_count.times do
+        zero_concurrencies << "0"
+    end
+    
+    # return the longest_zero
+    zero_concurrencies.join
 end
 
+def cero_leaded(arr, index)
+    nextPosition = index + 1
+    if arr[nextPosition] == "0"
+    return true
+    end
+end
+
+
+
+
+puts longest_zero("1000011000")
